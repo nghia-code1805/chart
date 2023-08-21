@@ -24,3 +24,7 @@ Route::get('chart', function () {
 Route::get('chart2', function () {
     return view('chart2');
 });
+
+Route::get('chart3', function () {
+    return view('chart3');
+});

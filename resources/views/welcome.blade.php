@@ -125,42 +125,9 @@
             }));
             cursor.lineY.set("visible", false);
 
-            // add scrollbar
-            chart.set("scrollbarX", am5.Scrollbar.new(root, {
-                orientation: "horizontal"
-            }));
-
-            var data1 = [
-                {
-                    value: 100
-                },
-                {
-                    value: 110
-                },
-                {
-                    value: 120
-                },
-                {
-                    value: 130
-                },
-                {
-                    value: 140
-                },
-                {
-                    value: 150
-                },
-                {
-                    value: 160
-                },
-                {
-                    value: 170
-                }
-            ]
-
-            createAxisAndSeries(data1, false);
-
-            // createAxisAndSeries(1000, false);
-            // createAxisAndSeries(500, false);
+            createAxisAndSeries(100, false);
+            createAxisAndSeries(50, false);
+            createAxisAndSeries(10, false);
 
             // Make stuff animate on load
             // https://www.amcharts.com/docs/v5/concepts/animations/
@@ -177,9 +144,9 @@
                     var newDate = new Date(firstDate);
                     newDate.setDate(newDate.getDate() + i);
 
-                    // value += Math.round(
-                    //     ((Math.random() < 0.5 ? 1 : -1) * Math.random() * value) / 20
-                    // );
+                    value += Math.round(
+                        ((Math.random() < 0.5 ? 1 : -1) * Math.random() * value) / 2
+                    );
 
                     data.push({
                         date: newDate,
