@@ -13,10 +13,10 @@
 
 		// Sample data for two datasets
 		var data = {
-			labels: ['January', 'February', 'March', 'April', 'May'],
+			labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
 			datasets: [{
 					label: 'Dataset 1',
-					data: [10, 20, 15, 25, 30],
+					data: [10, 23, 12, 45, 22, 45, 31],
 					yAxisID: 'y-axis-1', // Associate with the first y-axis
 					borderColor: 'red',
 					backgroundColor: 'rgba(255, 0, 0, 0.2)',
@@ -24,7 +24,7 @@
 				},
 				{
 					label: 'Dataset 2',
-					data: [15, 12, 11, 13, 14],
+					data: [15, 42, 21, 23, 44, 22, 21],
 					yAxisID: 'y-axis-2', // Associate with the second y-axis
 					borderColor: 'blue',
 					backgroundColor: 'rgba(0, 0, 255, 0.2)',
