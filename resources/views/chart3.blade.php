@@ -2,6 +2,10 @@
 <html>
 
 <head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
 	<title>Multi-Axis Line Chart</title>
 	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
@@ -83,7 +87,38 @@
 			data: data,
 			options: options
 		});
+
+		var xAxesData = myChart.data.labels;
+		console.log(xAxesData);
+
+		var datasets = myChart.data.datasets;
+
+		datasets.forEach(function(dataset) {
+			var yAxisData = dataset.data; // This array contains the y-axis data for the current dataset
+			var label = dataset.label; // The label of the current dataset
+
+			console.log("Y-axis data for dataset '" + label + "':", yAxisData);
+		});
 	</script>
+
+	<table class="table table-bordered">
+		<thead>
+			<tr>
+				<th>Date</th>
+				<th>S1</th>
+				<th>S2</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				@foreach($xAxesData as x)
+				<td>x</td>
+				@endforeach
+				<td>Doe</td>
+				<td>john@example.com</td>
+			</tr>
+		</tbody>
+	</table>
 </body>
 
 </html>
