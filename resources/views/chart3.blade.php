@@ -33,8 +33,28 @@
 			]
 		};
 
+		const footer = (data) => {
+			let sum = 0;
+
+			data.forEach(function(tooltipItem) {
+				sum += tooltipItem.parsed.y;
+			});
+			return 'Sum: ' + sum;
+		};
+
 		// Define multiple y-axes
 		var options = {
+			interaction: {
+				intersect: false,
+				mode: 'index',
+			},
+			plugins: {
+				tooltip: {
+					callbacks: {
+						footer: footer,
+					}
+				}
+			},
 			scales: {
 				yAxes: [{
 						type: 'linear',

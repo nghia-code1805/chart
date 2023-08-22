@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,3 +29,7 @@ Route::get('chart2', function () {
 Route::get('chart3', function () {
     return view('chart3');
 });
+
+Route::get('products',ProductController::class, 'index');
+
+Route::get('posts', [PostController::class, 'index']);
