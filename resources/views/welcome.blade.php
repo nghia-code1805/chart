@@ -7,12 +7,43 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <style>
+        /* Style for the popup background */
+        .popup-bg {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+            z-index: 1;
+        }
+
+        /* Style for the popup content */
+        .popup-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        /* Style for the close button */
+        .close-button {
+            cursor: pointer;
+        }
+    </style>
 </head>
 
 <body>
     <table class="table table-bordered">
         <thead>
             <tr>
+                <th>date time</th>
                 <th>Firstname</th>
                 <th>Lastname</th>
                 <th>Email</th>
@@ -20,16 +51,19 @@
         </thead>
         <tbody>
             <tr>
+                <td><a style="cursor: pointer;" id="openPopup">23/7/15 (月)</a></td>
                 <td>John</td>
                 <td>Doe</td>
                 <td>john@example.com</td>
             </tr>
             <tr>
+                <td>23/7/20 (火)</td>
                 <td>Mary</td>
                 <td>Moe</td>
                 <td>mary@example.com</td>
             </tr>
             <tr>
+                <td>23/7/30 (金)</td>
                 <td>July</td>
                 <td>Dooley</td>
                 <td>july@example.com</td>
@@ -37,7 +71,36 @@
         </tbody>
     </table>
 
+    <div class="popup-bg" id="popup">
+        <div class="popup-content">
+            <span class="close-button" id="close-popup">&times;</span>
+            <h2>Popup Form</h2>
+            <form>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required><br><br>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required><br><br>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </div>
+
     <script>
+        var open = document.getElementById('openPopup');
+
+        var popupForm = document.getElementById('popup');
+
+        var closePopupButton = document.getElementById('close-popup');
+
+        open.addEventListener("click", () => {
+            popupForm.style.display = 'block';
+        })
+
+        closePopupButton.addEventListener("click", () => {
+            popupForm.style.display = 'none';
+        })
+
+
         // Create a date object with the desired date
         const date = new Date();
 
