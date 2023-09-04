@@ -12,6 +12,7 @@
 
 <body>
 	<canvas id="myChart" width="400" height="100"></canvas>
+
 	<script>
 		var ctx = document.getElementById('myChart').getContext('2d');
 
@@ -22,16 +23,12 @@
 					label: 'Dataset 1',
 					data: [10, 23, 12, 45, 22, 45, 31],
 					yAxisID: 'y-axis-1', // Associate with the first y-axis
-					borderColor: 'red',
-					backgroundColor: 'rgba(255, 0, 0, 0.2)',
 					fill: false
 				},
 				{
 					label: 'Dataset 2',
 					data: [15, 42, 21, 23, 44, 22, 21],
 					yAxisID: 'y-axis-2', // Associate with the second y-axis
-					borderColor: 'blue',
-					backgroundColor: 'rgba(0, 0, 255, 0.2)',
 					fill: false
 				}
 			]
@@ -64,19 +61,13 @@
 						type: 'linear',
 						id: 'y-axis-1',
 						display: true,
-						position: 'left',
-						ticks: {
-							beginAtZero: true
-						}
+						position: 'left'
 					},
 					{
 						type: 'linear',
 						display: true,
 						id: 'y-axis-2',
-						position: 'left',
-						ticks: {
-							beginAtZero: true
-						}
+						position: 'left'
 					}
 				]
 			}
@@ -100,25 +91,6 @@
 			console.log("Y-axis data for dataset '" + label + "':", yAxisData);
 		});
 	</script>
-
-	<table class="table table-bordered">
-		<thead>
-			<tr>
-				<th>Date</th>
-				<th>S1</th>
-				<th>S2</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				@foreach($xAxesData as x)
-				<td>x</td>
-				@endforeach
-				<td>Doe</td>
-				<td>john@example.com</td>
-			</tr>
-		</tbody>
-	</table>
 </body>
 
 </html>

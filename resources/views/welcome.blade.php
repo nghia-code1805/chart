@@ -3,9 +3,70 @@
 
 <head>
     <title>CHART</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 
 <body>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>John</td>
+                <td>Doe</td>
+                <td>john@example.com</td>
+            </tr>
+            <tr>
+                <td>Mary</td>
+                <td>Moe</td>
+                <td>mary@example.com</td>
+            </tr>
+            <tr>
+                <td>July</td>
+                <td>Dooley</td>
+                <td>july@example.com</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        // Create a date object with the desired date
+        const date = new Date();
+
+        console.log("date: " + date)
+        // Current date, you can replace this with any specific date
+
+        // Define an array of weekday names in Japanese
+        const japaneseWeekdays = ["日", "月", "火", "水", "木", "金", "土"];
+
+        // Function to add leading zeros to single-digit numbers
+        function addLeadingZero(number) {
+            return number < 10 ? `0${number}` : number;
+        }
+
+        // Get the year in YY format (last two digits of the year)
+        const year = date.getFullYear().toString().slice(-2);
+
+        // Get the month and day with leading zeros
+        const month = addLeadingZero(date.getMonth() + 1);
+        const day = addLeadingZero(date.getDate());
+
+        // Get the weekday in Japanese
+        const weekday = japaneseWeekdays[date.getDay()];
+
+        // Format the date in the desired format
+        const formattedDate = `${year}/${month}/${day} (${weekday})`;
+
+        console.log(formattedDate); // Example output: "23/09/04 (火)"
+    </script>
     <div id="chartdiv"></div>
 
     <style>

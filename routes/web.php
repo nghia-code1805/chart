@@ -29,6 +29,9 @@ Route::get('chart3', function () {
     return view('chart3');
 });
 
+Route::get('button', function () {
+    return view('buttonchart');
+});
 // Route::resource('products', ProductController::class, 'index');
 
 Route::get('posts', [PostController::class, 'index']);
