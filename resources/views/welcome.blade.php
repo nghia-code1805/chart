@@ -8,8 +8,48 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
+<style>
+    label {
+        margin: 20px 0;
+        position: relative;
+        display: inline-block;
+    }
+
+    span {
+        padding: 10px;
+        pointer-events: none;
+        position: absolute;
+        left: 0;
+        top: 0;
+        transition: 0.2s;
+        transition-timing-function: ease;
+        transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+        opacity: 0.5;
+    }
+
+    input {
+        padding: 10px;
+    }
+
+    input:focus+span,
+    input:not(:placeholder-shown)+span {
+        opacity: 1;
+        transform: scale(0.75) translateY(-100%) translateX(-30px);
+    }
+
+    /* For IE Browsers*/
+    input:focus+span,
+    input:not(:-ms-input-placeholder)+span {
+        opacity: 1;
+        transform: scale(0.75) translateY(-100%) translateX(-30px);
+    }
+</style>
 
 <body>
+    <label>
+        <input placeholder=" " value="nghia">
+        <span>Placeholder Text</span>
+    </label>
     <table class="table table-bordered">
         <thead>
             <tr>

@@ -17,6 +17,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/input', function () {
+    return view('inputfocus');
+});
+
 Route::get('chart', function () {
     return view('chart');
 });
