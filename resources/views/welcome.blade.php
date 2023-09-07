@@ -9,14 +9,14 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <style>
-    label {
+    div {
         margin: 20px 0;
         position: relative;
         display: inline-block;
     }
 
-    span {
-        padding: 10px;
+    label {
+        padding: 8px;
         pointer-events: none;
         position: absolute;
         left: 0;
@@ -31,25 +31,26 @@
         padding: 10px;
     }
 
-    input:focus+span,
-    input:not(:placeholder-shown)+span {
+    input:focus+label,
+    input:not(:placeholder-shown)+label {
         opacity: 1;
         transform: scale(0.75) translateY(-100%) translateX(-30px);
     }
 
     /* For IE Browsers*/
-    input:focus+span,
-    input:not(:-ms-input-placeholder)+span {
+    input:focus+label,
+    input:not(:-ms-input-placeholder)+label {
         opacity: 1;
         transform: scale(0.75) translateY(-100%) translateX(-30px);
     }
 </style>
 
 <body>
-    <label>
-        <input placeholder=" " value="nghia">
-        <span>Placeholder Text</span>
-    </label>
+    <div>
+        <input placeholder=" " type="text" class="form-control" id="form-input" value="nghiant">
+        <label class="form-label" for="form-input">Placeholder Text</label>
+    </div>
+
     <table class="table table-bordered">
         <thead>
             <tr>
