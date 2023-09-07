@@ -47,7 +47,7 @@
 
 <body>
     <div>
-        <input placeholder=" " type="text" class="form-control" id="form-input" value="nghiant">
+        <input placeholder="" type="text" class="form-control" id="form-input" value="nghiant">
         <label class="form-label" for="form-input">Placeholder Text</label>
     </div>
 
