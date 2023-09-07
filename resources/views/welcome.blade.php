@@ -7,6 +7,12 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 </head>
 <style>
     div {
@@ -46,41 +52,60 @@
 </style>
 
 <body>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <div>
         <input placeholder="" type="text" class="form-control" id="form-input" value="nghiant">
         <label class="form-label" for="form-input">Placeholder Text</label>
     </div>
 
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th>date time</th>
-                <th>Firstname</th>
-                <th>Lastname</th>
-                <th>Email</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><a style="cursor: pointer;" data-toggle="modal" data-target="#myModal">23/7/15 (月)</a></td>
-                <td>John</td>
-                <td>Doe</td>
-                <td>john@example.com</td>
-            </tr>
-            <tr>
-                <td>23/7/20 (火)</td>
-                <td>Mary</td>
-                <td>Moe</td>
-                <td>mary@example.com</td>
-            </tr>
-            <tr>
-                <td>23/7/30 (金)</td>
-                <td>July</td>
-                <td>Dooley</td>
-                <td>july@example.com</td>
-            </tr>
-        </tbody>
-    </table>
+    <!-- <form>
+        <input class="form-control" type="datetime-local" placeholder="select datetime" />
+    </form>
+
+    <script>
+        config = {
+            dateFormat: "d.m.Y",
+            maxDate: "today"
+        }
+        flatpickr("input[type=datetime-local]", config);
+    </script> -->
+
+    <input type="text" id="myDatePicker" data-toggle="flatpickr">
+
+    <input type="button" value="next" onclick="selectNextDay()" />
+
+    <script>
+        // Get a reference to the Flatpickr instance
+        config = {
+            dateFormat: "d.m.Y",
+            maxDate: "today"
+        }
+        var datePicker = flatpickr("#myDatePicker", config);
+
+        // Function to select the previous day
+        function selectPrevDay() {
+            var currentDate = datePicker.selectedDates[0];
+            var newDate = new Date(currentDate);
+            newDate.setDate(currentDate.getDate() - 1);
+            datePicker.setDate(newDate);
+        }
+
+        // Function to select the next day
+        function selectNextDay() {
+            var currentDate = datePicker.selectedDates[0];
+            var newDate = new Date(currentDate);
+            newDate.setDate(currentDate.getDate() + 1);
+            datePicker.setDate(newDate);
+        }
+
+        // Example usage:
+        // Select the previous day
+        selectPrevDay();
+
+        // Select the next day
+        selectNextDay();
+    </script>
+
 
     <div class="container">
         <!-- Trigger the modal with a button -->
@@ -114,14 +139,6 @@
         var popupForm = document.getElementById('popup');
 
         var closePopupButton = document.getElementById('close-popup');
-
-        open.addEventListener("click", () => {
-            popupForm.style.display = 'block';
-        })
-
-        closePopupButton.addEventListener("click", () => {
-            popupForm.style.display = 'none';
-        })
 
 
         // Create a date object with the desired date
