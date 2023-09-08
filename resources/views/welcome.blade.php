@@ -12,6 +12,10 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
+    <!-- moment js -->
+    <script src="https://momentjs.com/downloads/moment.js"></script>
+    <script src="https://momentjs.com/downloads/moment-with-locales.js"></script>
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 </head>
 <style>
@@ -70,15 +74,35 @@
         flatpickr("input[type=datetime-local]", config);
     </script> -->
 
-    <input type="text" id="myDatePicker" data-toggle="flatpickr">
+    <input type="button" value="prev" onclick="selectPrevDay()" />
+
+    <input type="text" id="myDatePicker" data-toggle="flatpickr" style="text-align: center;">
 
     <input type="button" value="next" onclick="selectNextDay()" />
 
     <script>
         // Get a reference to the Flatpickr instance
+
+        var date_now = new Date();
+        var date_moment = moment(date_now, "MM-DD-YYYY").locale('ja').format('MMMM Do (dd)');
+        console.log(date_moment);
+        // date_moment.locale('ja');
+        // date_moment.format('llll');
+        // if (date_moment.isValid()) {
+        //     console.log(date_moment.date());
+        // } else {
+        //     console.log('Date is not valid! ');
+        // }
+
+
         config = {
-            dateFormat: "d.m.Y",
-            maxDate: "today"
+            // dateFormat: "d.m.Y",
+            maxDate: "today",
+            defaultDate: new Date(date_moment),
+            // dateFormat: moment("today", "MM-DD-YYYY").locale('ja').format('MMMM Do (dd)'),
+            onChange: function(selectedDates, dateStr, instance) {
+                document.getElementById('myDatePicker').value = moment(selectedDates[0], "MM-DD-YYYY").locale('ja').format('MMMM Do (dd)');
+            }
         }
         var datePicker = flatpickr("#myDatePicker", config);
 
@@ -97,13 +121,6 @@
             newDate.setDate(currentDate.getDate() + 1);
             datePicker.setDate(newDate);
         }
-
-        // Example usage:
-        // Select the previous day
-        selectPrevDay();
-
-        // Select the next day
-        selectNextDay();
     </script>
 
 
@@ -144,7 +161,7 @@
         // Create a date object with the desired date
         const date = new Date();
 
-        console.log("date: " + date)
+        // console.log("date: " + date)
         // Current date, you can replace this with any specific date
 
         // Define an array of weekday names in Japanese
@@ -168,7 +185,7 @@
         // Format the date in the desired format
         const formattedDate = `${year}/${month}/${day} (${weekday})`;
 
-        console.log(formattedDate); // Example output: "23/09/04 (火)"
+        // console.log(formattedDate); // Example output: "23/09/04 (火)"
     </script>
     <div id="chartdiv"></div>
 
