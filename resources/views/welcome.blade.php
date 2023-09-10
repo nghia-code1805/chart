@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+@extends('inputfocus')
 
 <head>
     <title>CHART</title>
@@ -18,6 +19,11 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 </head>
+<style>
+    footer {
+        display: none;
+    }
+</style>
 <style>
     div {
         margin: 20px 0;
