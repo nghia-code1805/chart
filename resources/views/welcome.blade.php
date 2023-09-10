@@ -85,7 +85,7 @@
 
         var date_now = new Date();
         var date_moment = moment(date_now, "MM-DD-YYYY").locale('ja').format('MMMM Do (dd)');
-        console.log(date_moment);
+        // console.log(date_moment.toString());
         // date_moment.locale('ja');
         // date_moment.format('llll');
         // if (date_moment.isValid()) {
@@ -98,8 +98,9 @@
         config = {
             // dateFormat: "d.m.Y",
             maxDate: "today",
-            defaultDate: new Date(date_moment),
-            // dateFormat: moment("today", "MM-DD-YYYY").locale('ja').format('MMMM Do (dd)'),
+            defaultDate: "today",
+            // altFormat: moment().locale('ja').format('MMMM Do (dd)'),
+            dateFormat: moment().locale('ja').format('MMMM Do (dd)'),
             onChange: function(selectedDates, dateStr, instance) {
                 document.getElementById('myDatePicker').value = moment(selectedDates[0], "MM-DD-YYYY").locale('ja').format('MMMM Do (dd)');
             }
@@ -112,14 +113,19 @@
             var newDate = new Date(currentDate);
             newDate.setDate(currentDate.getDate() - 1);
             datePicker.setDate(newDate);
+            document.getElementById('myDatePicker').value = moment(newDate, "MM-DD-YYYY").locale('ja').format('MMMM Do (dd)');
         }
 
         // Function to select the next day
         function selectNextDay() {
             var currentDate = datePicker.selectedDates[0];
             var newDate = new Date(currentDate);
-            newDate.setDate(currentDate.getDate() + 1);
-            datePicker.setDate(newDate);
+            var date_now = new Date();
+            if (currentDate.getDate() < date_now.getDate()) {
+                newDate.setDate(currentDate.getDate() + 1);
+                datePicker.setDate(newDate);
+                document.getElementById('myDatePicker').value = moment(newDate, "MM-DD-YYYY").locale('ja').format('MMMM Do (dd)');
+            }
         }
     </script>
 
