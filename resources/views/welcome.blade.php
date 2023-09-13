@@ -20,53 +20,67 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 </head>
 <style>
-    footer {
-        display: none;
-    }
-</style>
-<style>
-    div {
-        margin: 20px 0;
+    /* Import Google font - Poppins */
+    /* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap'); */
+
+    /* * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    } */
+
+    /* body {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #060b23;
+    } */
+
+    .input-field {
         position: relative;
-        display: inline-block;
     }
 
-    label {
-        padding: 8px;
-        pointer-events: none;
+    .input-field input {
+        width: 100%;
+        height: 35px;
+        border-radius: 6px;
+        padding: 0 15px;
+        border: 2px solid;
+        background: transparent;
+        outline: none;
+    }
+
+    .input-field .label-control {
         position: absolute;
-        left: 0;
+        top: 50%;
+        left: 15px;
+        transform: translateY(-50%);
+        pointer-events: none;
+        transition: 0.3s;
+    }
+
+    input:focus {
+        border: 2px solid;
+    }
+
+    input:focus~.label-control,
+    input:valid~.label-control {
         top: 0;
-        transition: 0.2s;
-        transition-timing-function: ease;
-        transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
-        opacity: 0.5;
-    }
-
-    input {
-        padding: 10px;
-    }
-
-    input:focus+label,
-    input:not(:placeholder-shown)+label {
-        opacity: 1;
-        transform: scale(0.75) translateY(-100%) translateX(-30px);
-    }
-
-    /* For IE Browsers*/
-    input:focus+label,
-    input:not(:-ms-input-placeholder)+label {
-        opacity: 1;
-        transform: scale(0.75) translateY(-100%) translateX(-30px);
+        left: 15px;
+        font-size: 12px;
+        padding: 0 2px;
+        background: #fff;
     }
 </style>
 
 <body>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-    <div>
+    <!-- <div>
         <input placeholder="" type="text" class="form-control" id="form-input" value="nghiant">
         <label class="form-label" for="form-input">Placeholder Text</label>
-    </div>
+    </div> -->
 
     <!-- <form>
         <input class="form-control" type="datetime-local" placeholder="select datetime" />
@@ -80,11 +94,22 @@
         flatpickr("input[type=datetime-local]", config);
     </script> -->
 
-    <input type="button" value="prev" onclick="selectPrevDay()" />
+    <!-- <input type="button" value="prev" onclick="selectPrevDay()" />
 
     <input type="text" id="myDatePicker" data-toggle="flatpickr" style="text-align: center;">
 
-    <input type="button" value="next" onclick="selectNextDay()" />
+    <input type="button" value="next" onclick="selectNextDay()" /> -->
+
+    <!-- focus input -->
+    <!-- <input type="text" class="form-control"> -->
+    <br>
+    <br>
+    <label>nghiNR</label> <br>
+    <label>NGHIANT</label>
+    <div class="input-field">
+        <input type="text" required spellcheck="false">
+        <label class="label-control">Enter email</label>
+    </div>
 
     <script>
         // Get a reference to the Flatpickr instance
@@ -112,6 +137,12 @@
             }
         }
         var datePicker = flatpickr("#myDatePicker", config);
+
+        const get_id_date = document.getElementById("myDatePicker");
+        get_id_date.addEventListener('click', function(event) {
+            const get_data_date = event.target.getElementById('myDatePicker');
+            console.log("date " + get_data_date);
+        })
 
         // Function to select the previous day
         function selectPrevDay() {
