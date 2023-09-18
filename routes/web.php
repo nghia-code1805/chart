@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PdfGeneratorController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,12 +14,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
 Route::get('/', function () {
     return view('welcome');
-});
-
-Route::get('/input', function () {
-    return view('inputfocus');
 });
 
 Route::get('chart', function () {
@@ -39,3 +40,5 @@ Route::get('button', function () {
 // Route::resource('products', ProductController::class, 'index');
 
 Route::get('posts', [PostController::class, 'index']);
+
+Route::get('html-pdf', [PdfGeneratorController::class, 'index'])->name('index');

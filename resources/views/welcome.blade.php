@@ -111,6 +111,18 @@
         <label class="label-control">Enter email</label>
     </div>
 
+    <link href="{{ asset('css/all.min.css') }}" rel="stylesheet">
+
+    <!-- file download -->
+    <!-- https://fontawesome.com/download -->
+    <div>
+        <p>Unicode:</p>
+        <button class="btn btn-primary">nghinar
+            <i class="fa-solid fa-pencil"></i>
+        </button>
+        <i class="fa-solid fa-chevron-right"></i>
+    </div>
+
     <script>
         // Get a reference to the Flatpickr instance
 
