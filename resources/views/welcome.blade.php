@@ -123,6 +123,9 @@
         <i class="fa-solid fa-chevron-right"></i>
     </div>
 
+    <!-- get link search -->
+    <!-- https://www.laravelia.com/post/laravel-10-simple-eloquent-model-search-example -->
+
     <script>
         // Get a reference to the Flatpickr instance
 
