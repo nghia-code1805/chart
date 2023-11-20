@@ -26,6 +26,10 @@ Route::get('chart', function () {
     return view('chart');
 });
 
+Route::get('tabs', function () {
+    return view('tab');
+});
+
 Route::get('chart2', function () {
     return view('chart2');
 });
